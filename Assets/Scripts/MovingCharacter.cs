@@ -13,11 +13,9 @@ namespace Assets.Scripts
         CharacterEventManager _eventManager;
         private bool _isPaused;
 
-        public void Go(Vector3 direction, float speed, float tazeRecoveryDuration)
+        public void Go(Vector3 direction)
         {
             Direction = direction;
-            Speed = speed;
-            TazeRecoveryDuration = tazeRecoveryDuration;
         }
 
         void Start()

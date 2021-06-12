@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0, z: 0}
-  Speed: 0
+  Speed: 1
+  TazeRecoveryDuration: 4

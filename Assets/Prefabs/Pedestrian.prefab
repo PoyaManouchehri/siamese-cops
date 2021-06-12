@@ -73,7 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0, z: 0}
-  Speed: 0
+  Speed: 1
+  TazeRecoveryDuration: 2
 --- !u!1 &2988846858004250360
 GameObject:
   m_ObjectHideFlags: 0
