@@ -1,0 +1,16 @@
+Temp
+.vs
+Library
+*.sln
+*.*proj
+player_win*
+Startup Freak.exe
+Startup Freak_Data
+StartupFreak.sln.DotSettings.user
+UnityPlayer.dll
+obj
+Mono
+UnityCrashHandler32.exe
+Build
+Logs
+fmod_editor.log
