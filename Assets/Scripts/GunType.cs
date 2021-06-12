@@ -7,6 +7,6 @@ namespace Assets.Scripts
     {
         Pistol,
         Tazer,
-        HealthPackShooter
+        HealthPackLauncher
     }
 }

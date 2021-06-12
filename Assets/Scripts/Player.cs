@@ -40,7 +40,7 @@ namespace Assets.Scripts
             if (Input.GetKey(KeyCode.Alpha2))
                 SetActiveGun(GunType.Tazer);
             if (Input.GetKey(KeyCode.Alpha3))
-                SetActiveGun(GunType.HealthPackShooter);
+                SetActiveGun(GunType.HealthPackLauncher);
         }
     }
 }

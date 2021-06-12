@@ -8,18 +8,15 @@ namespace Assets.Scripts
     {
         public Vector3 Direction;
         public float Speed;
-        public Vector3 TazeKnock;
         public float TazeRecoveryDuration;
 
         CharacterEventManager _eventManager;
-        private bool _isShot;
-        private bool _isTazed;
+        private bool _isPaused;
 
-        public void Go(Vector3 direction, float speed, Vector3 tazeKnock, float tazeRecoveryDuration)
+        public void Go(Vector3 direction, float speed, float tazeRecoveryDuration)
         {
             Direction = direction;
             Speed = speed;
-            TazeKnock = tazeKnock;
             TazeRecoveryDuration = tazeRecoveryDuration;
         }
 
@@ -28,19 +25,19 @@ namespace Assets.Scripts
             _eventManager = gameObject.GetComponent<CharacterEventManager>();
             _eventManager.Shot += OnShot;
             _eventManager.Tazed += OnTazed;
+            _eventManager.Revived += OnRevived;
         }
 
         void Update()
         {
-            if (_isShot || _isTazed) return;
+            if (_isPaused) return;
 
             transform.position += Direction * Speed * Time.deltaTime;
         }
 
         void OnShot(object sender, EventArgs e)
         {
-            _isShot = true;
-            GetComponent<BoxCollider>().enabled = false;
+            _isPaused = true;
         }
 
         void OnTazed(object sender, EventArgs e)
@@ -48,12 +45,16 @@ namespace Assets.Scripts
             StartCoroutine(Taze());
         }
 
+        void OnRevived(object sender, EventArgs e)
+        {
+            _isPaused = false;
+        }
+
         private IEnumerator Taze()
         {
-            _isTazed = true;
-            transform.position += TazeKnock;
+            _isPaused = true;
             yield return new WaitForSeconds(TazeRecoveryDuration);
-            _isTazed = false;
+            _isPaused = false;
         }
     }
 }

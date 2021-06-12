@@ -4,16 +4,24 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IHealthOwner
     {
         public Transform Body;
 
         CharacterEventManager _eventManager;
+        private int _health = 1;
+
+        public bool CanReceiveHealth()
+        {
+            return _health == 1;
+        }
 
         void Start()
         {
             _eventManager = gameObject.AddComponent<CharacterEventManager>();
             _eventManager.Shot += OnShot;
+            _eventManager.Tazed += OnTazed;
+            _eventManager.PickedUpHealth += OnPickedUpHealth;
         }
 
         void Update()
@@ -22,7 +30,21 @@ namespace Assets.Scripts
 
         void OnShot(object sender, EventArgs e)
         {
-            StartCoroutine(Die());
+            _health = Math.Max(0, _health - 1);
+
+            if (_health == 0)
+                StartCoroutine(Die());
+        }
+
+        private void OnTazed(object sender, EventArgs e)
+        {
+            transform.position += transform.right * 0.6f;
+        }
+
+        void OnPickedUpHealth(object sender, EventArgs e)
+        {
+            if (_health == 1)
+                _health = 2;
         }
 
         private IEnumerator Die()

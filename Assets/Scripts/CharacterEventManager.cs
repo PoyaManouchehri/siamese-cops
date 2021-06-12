@@ -7,6 +7,8 @@ namespace Assets.Scripts
     {
         public event EventHandler Shot = delegate { };
         public event EventHandler Tazed = delegate { };
+        public event EventHandler PickedUpHealth = delegate { };
+        public event EventHandler Revived = delegate { };
 
         public void RaiseShot()
         {
@@ -16,6 +18,16 @@ namespace Assets.Scripts
         public void RaiseTazed()
         {
             Tazed(this, new EventArgs());
+        }
+
+        public void RaisedPickedUpHealth()
+        {
+            PickedUpHealth(this, new EventArgs());
+        }
+
+        public void RaiseRevived()
+        {
+            Revived(this, new EventArgs());
         }
     }
 }
