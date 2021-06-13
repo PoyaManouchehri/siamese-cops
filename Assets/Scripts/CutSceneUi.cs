@@ -159,7 +159,7 @@ namespace Assets.Scripts
                 else titles.AddRange(new[] { "father", "uncle" });
             }
 
-            return $"loving {titles[_random.Next(0, titles.Count)]} of {_random.Next(1, 5)}";
+            return $"loving {titles[_random.Next(0, titles.Count)]} of {_random.Next(1, 6)}.";
         }
 
         string GetDescriptor(Death death)
@@ -173,7 +173,9 @@ namespace Assets.Scripts
                     "mathematics genius.",
                     "gifted athlete, destined to become a star.",
                     "the nicest kid at school, loved by students and teachers alike.",
-                    "voted young Australian of the decade."
+                    "voted young Australian of the decade.",
+                    "streamer, massive influencer, LARPer, legend.",
+                    "the sweetest kid in the world."
                 });
             }
             else
@@ -184,11 +186,14 @@ namespace Assets.Scripts
                     "best damn plumber this town has ever seen.",
                     "chef, baker, foster parent.",
                     "bit heart, huge smile, always caring.",
-                    "Physicist, biochemist, botanist, quilting champion."
+                    "physicist, biochemist, botanist, quilting champion.",
+                    $"owner of {_random.Next(11, 23)} pets who miss them every day.",
+                    "musical prodigy.",
+                    $"curling legend, winner of {_random.Next(5, 15)} olympic gold medals."
                 });
             }
 
-            return Math.Abs(_random.NextDouble()) < 0.25 ? extras[_random.Next(0, extras.Count)] : GetRelation(death);
+            return Math.Abs(_random.NextDouble()) < 0.5 ? extras[_random.Next(0, extras.Count)] : GetRelation(death);
         }
 
         private IEnumerator Scroll()
