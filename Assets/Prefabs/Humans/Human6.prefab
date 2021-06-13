@@ -51,6 +51,10 @@ MonoBehaviour:
   StandCollider: {fileID: -6480864531349849097}
   DownCollider: {fileID: 2589270331785362410}
   TazeRecoveryDuration: 2
+  GameState: {fileID: 11400000, guid: 7e99d9227cdd4d64dbd30df1058522af, type: 2}
+  AgeMin: 40
+  AgeMax: 55
+  Gender: 0
 --- !u!114 &7254511255215635415
 MonoBehaviour:
   m_ObjectHideFlags: 0

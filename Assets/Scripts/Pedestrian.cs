@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts
 {
@@ -10,12 +11,19 @@ namespace Assets.Scripts
         public BoxCollider StandCollider;
         public BoxCollider DownCollider;
         public float TazeRecoveryDuration;
+        public GameState GameState;
+
+        public int AgeMin;
+        public int AgeMax;
+        public Gender Gender;
 
         private const int AnimShot = 1;
         private const int AnimStandUp = 2;
         private const int AnimElectrocute = 3;
         private const int AnimWalk = 0;
         private const float KnockDistance = 0f;
+
+        private Random _random = new Random(Guid.NewGuid().GetHashCode());
 
         CharacterEventManager _eventManager;
         int _health = 1;
@@ -88,7 +96,14 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(7f);
 
             if (_health == 0)
+            {
                 Destroy(gameObject);
+                GameState.RecordDeath(new Death
+                {
+                    Age = _random.Next(AgeMin, AgeMax + 1),
+                    Gender = Gender
+                });
+            }
         }
 
         private IEnumerator StandUp()
