@@ -12,3 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ac8dfbd6c2d3a42a2dc99c35dd2dd1, type: 3}
   m_Name: EnemyWave1
   m_EditorClassIdentifier: 
+  Items:
+  - TimestampDelta: 2
+    Count: 1
+    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+  - TimestampDelta: 7
+    Count: 2
+    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+  - TimestampDelta: 5
+    Count: 2
+    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+  - TimestampDelta: 4
+    Count: 2
+    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+  - TimestampDelta: 4
+    Count: 2
+    Prefab: {fileID: 0}
+  - TimestampDelta: 1
+    Count: 2
+    Prefab: {fileID: 0}
+  - TimestampDelta: 10
+    Count: 4
+    Prefab: {fileID: 0}
+  - TimestampDelta: 12
+    Count: 3
+    Prefab: {fileID: 0}
+  - TimestampDelta: 0
+    Count: 0
+    Prefab: {fileID: 0}
+  - TimestampDelta: 0
+    Count: 0
+    Prefab: {fileID: 0}

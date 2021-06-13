@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
         public GameObject CharacterPrefab;
         public float[] PauseDurations;
+        public GameState GameState;
 
         readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
 
@@ -21,6 +22,9 @@ namespace Assets.Scripts
         {
             while (true)
             {
+                if (GameState.State != GameStates.Playing)
+                    yield break;
+
                 var pause = PauseDurations[_random.Next(0, PauseDurations.Length)];
                 yield return new WaitForSeconds(pause);
 

@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public Vector3 Direction;
         public float Speed;
         public float TazeRecoveryDuration;
+        public GameState GameState;
 
         CharacterEventManager _eventManager;
         private bool _isPaused;
@@ -28,7 +29,7 @@ namespace Assets.Scripts
 
         void Update()
         {
-            if (_isPaused) return;
+            if (_isPaused || GameState.State != GameStates.Playing) return;
 
             transform.position += Direction * Speed * Time.deltaTime;
         }

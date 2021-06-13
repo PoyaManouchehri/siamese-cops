@@ -7,9 +7,11 @@ namespace Assets.Scripts
     public class Enemy : MonoBehaviour, IHealthOwner
     {
         public Transform Body;
+        public GameState GameState;
 
         CharacterEventManager _eventManager;
-        private int _health = 1;
+        int _health = 1;
+        BoxCollider _collider;
 
         public bool CanReceiveHealth()
         {
@@ -22,10 +24,12 @@ namespace Assets.Scripts
             _eventManager.Shot += OnShot;
             _eventManager.Tazed += OnTazed;
             _eventManager.PickedUpHealth += OnPickedUpHealth;
+            _collider = GetComponent<BoxCollider>();
         }
 
         void Update()
         {
+            CheckCollisions();
         }
 
         void OnShot(object sender, EventArgs e)
@@ -60,6 +64,26 @@ namespace Assets.Scripts
             }
 
             Destroy(gameObject);
+        }
+
+        void CheckCollisions()
+        {
+            var hits = Physics.OverlapBox(transform.position + _collider.center, _collider.size * 0.5f,
+                transform.rotation);
+            foreach (var hit in hits)
+            {
+                if (hit.GetComponent<Player>() != null)
+                {
+                    GameState.SetState(GameStates.PlayerKilledByZombie);
+                    break;
+                }
+
+                if (hit.GetComponent<Road>() != null)
+                {
+                    GameState.SetState(GameStates.PedestrianKilledByZombie);
+                    break;
+                }
+            }
         }
     }
 }

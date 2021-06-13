@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = System.Random;
 
 namespace Assets.Scripts
@@ -10,6 +11,7 @@ namespace Assets.Scripts
     {
         public Transform[] Lanes;
         public SpawnPlan SpawnPlan;
+        public GameState GameState;
 
         public int PlanPosition;
         private float _lastSpawn;
@@ -18,7 +20,7 @@ namespace Assets.Scripts
 
         void Start()
         {
-            _lastSpawn = Time.time;
+            PlanPosition = 0;
             _shuffledLaneIndices = Enumerable.Range(0, Lanes.Length).Select(i => i).ToArray();
             StartCoroutine(Spawn());
         }
@@ -36,20 +38,23 @@ namespace Assets.Scripts
 
         IEnumerator Spawn()
         {
+            Debug.Log("PlanPosition: " + PlanPosition);
+            _lastSpawn = Time.time;
+
             while (PlanPosition < SpawnPlan.Items.Length)
             {
+                if (GameState.State != GameStates.Playing)
+                    yield break;
+
                 var planItem = SpawnPlan.Items[PlanPosition];
 
                 var timeSinceLastSpawn = Time.time - _lastSpawn;
-                Debug.Log("timeSinceLastSpawn: " + timeSinceLastSpawn + ", TimestampDelta: " + planItem.TimestampDelta);
 
                 if (timeSinceLastSpawn < planItem.TimestampDelta)
                 {
                     yield return null;
                     continue;
                 }
-
-                Debug.Log("Spawning");
 
                 _lastSpawn = Time.time;
                 PlanPosition++;

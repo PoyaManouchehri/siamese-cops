@@ -10,6 +10,7 @@ namespace Assets.Scripts
 
         CharacterEventManager _eventManager;
         int _health = 1;
+        Vector3 _origin;
 
         public bool CanReceiveHealth()
         {
@@ -18,10 +19,17 @@ namespace Assets.Scripts
 
         void Start()
         {
+            _origin = transform.position;
             _eventManager = gameObject.AddComponent<CharacterEventManager>();
             _eventManager.Shot += OnShot;
             _eventManager.Tazed += OnTazed;
             _eventManager.PickedUpHealth += OnPickedUpHealth;
+        }
+
+        void Update()
+        {
+            if ((transform.position - _origin).magnitude > 15)
+                Destroy(gameObject);
         }
 
         void OnShot(object sender, EventArgs e)

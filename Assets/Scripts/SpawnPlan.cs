@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnPlan")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/SpawnPlan")]
     public class SpawnPlan : ScriptableObject
     {
         public SpawnPlanItem[] Items;

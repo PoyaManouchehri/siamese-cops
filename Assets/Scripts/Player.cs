@@ -7,6 +7,8 @@ namespace Assets.Scripts
     {
         public Gun[] Guns;
         public float Speed;
+        public GameState GameState;
+
         private Gun[] _activeGuns;
 
         void SetActiveGun(GunType type)
@@ -24,6 +26,9 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
+            if (GameState.State != GameStates.Playing)
+                return;
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 foreach (var gun in _activeGuns)
