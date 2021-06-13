@@ -8,6 +8,12 @@ namespace Assets.Scripts
         public Gun[] Guns;
         public float Speed;
         public GameState GameState;
+        public Animator AnimatorTwin1;
+        public Animator AnimatorTwin2;
+
+        private const int AnimIdle = 0;
+        private const int AnimStrafeRight = 1;
+        private const int AnimStrafeLeft = 2;
 
         private Gun[] _activeGuns;
 
@@ -36,9 +42,19 @@ namespace Assets.Scripts
             }
 
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
                 transform.Translate(Vector3.left * Speed * Time.deltaTime);
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                SetAnimationState(AnimStrafeLeft);
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
                 transform.Translate(-Vector3.left * Speed * Time.deltaTime);
+                SetAnimationState(AnimStrafeRight);
+            }
+            else
+            {
+                SetAnimationState(AnimIdle);
+            }
 
             if (Input.GetKey(KeyCode.Alpha1))
                 SetActiveGun(GunType.Pistol);
@@ -46,6 +62,15 @@ namespace Assets.Scripts
                 SetActiveGun(GunType.Tazer);
             if (Input.GetKey(KeyCode.Alpha3))
                 SetActiveGun(GunType.HealthPackLauncher);
+        }
+
+        private void SetAnimationState(int state)
+        {
+            var currState = AnimatorTwin1.GetInteger("State");
+            if (currState == state) return;
+
+            AnimatorTwin1.SetInteger("State", state);
+            AnimatorTwin2.SetInteger("State", state);
         }
     }
 }

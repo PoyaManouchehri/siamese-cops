@@ -66,6 +66,7 @@ namespace Assets.Scripts
                     var prefab = planItem.Prefabs[_random.Next(0, planItem.Count)];
                     var instance = Instantiate(prefab, lane.transform.position, lane.transform.rotation);
                     instance.GetComponent<MovingCharacter>().Go(lane.transform.forward);
+                    yield return new WaitForSeconds((float) Math.Abs(_random.NextDouble() * 0.5));
                 }
 
                 yield return null;
