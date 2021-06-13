@@ -15,31 +15,51 @@ MonoBehaviour:
   Items:
   - TimestampDelta: 2
     Count: 1
-    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 7
     Count: 2
-    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 5
     Count: 2
-    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 4
     Count: 2
-    Prefab: {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    Prefabs:
+    - {fileID: 0}
+    - {fileID: 0}
   - TimestampDelta: 4
     Count: 2
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 1
     Count: 2
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 10
     Count: 4
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 12
     Count: 3
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 0
     Count: 0
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 0
     Count: 0
-    Prefab: {fileID: 0}
+    Prefabs:
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
+    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}

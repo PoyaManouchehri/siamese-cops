@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Random = System.Random;
 
 namespace Assets.Scripts
@@ -64,7 +63,8 @@ namespace Assets.Scripts
                 {
                     var laneIndex = _shuffledLaneIndices[i];
                     var lane = Lanes[laneIndex];
-                    var instance = Instantiate(planItem.Prefab, lane.transform.position, lane.transform.rotation);
+                    var prefab = planItem.Prefabs[_random.Next(0, planItem.Count)];
+                    var instance = Instantiate(prefab, lane.transform.position, lane.transform.rotation);
                     instance.GetComponent<MovingCharacter>().Go(lane.transform.forward);
                 }
 
