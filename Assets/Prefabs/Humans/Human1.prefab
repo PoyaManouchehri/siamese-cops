@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7283420956576112227}
   - component: {fileID: -3544592849089255103}
   - component: {fileID: 7019980652756240935}
+  - component: {fileID: 8770112466560498250}
   m_Layer: 0
   m_Name: Human1
   m_TagString: Untagged
@@ -46,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f4c87631ca09d45a8563d35a66457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Body: {fileID: 0}
+  Animator: {fileID: 3405113293964418353}
+  StandCollider: {fileID: 7019980652756240935}
+  DownCollider: {fileID: 8770112466560498250}
 --- !u!114 &-3544592849089255103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +79,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8, z: 0.7}
   m_Center: {x: 0, y: 0.9, z: 0.05}
+--- !u!65 &8770112466560498250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803189774147966578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 2}
+  m_Center: {x: 0, y: 0.25, z: 0.8}
 --- !u!95 &3405113293964418353
 Animator:
   serializedVersion: 3
