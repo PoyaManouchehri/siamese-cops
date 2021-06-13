@@ -7,7 +7,7 @@ namespace Assets.Scripts
 {
     public class PedestrianSpawner : MonoBehaviour
     {
-        public GameObject CharacterPrefab;
+        public GameObject[] CharacterPrefabs;
         public float[] PauseDurations;
         public GameState GameState;
 
@@ -26,9 +26,10 @@ namespace Assets.Scripts
                     yield break;
 
                 var pause = PauseDurations[_random.Next(0, PauseDurations.Length)];
-                yield return new WaitForSeconds(pause);
+                yield return new WaitForSeconds(pause + (float)Math.Abs(_random.NextDouble()) * 0.5f);
 
-                var instance = Instantiate(CharacterPrefab, transform.position, transform.rotation);
+                var prefab = CharacterPrefabs[_random.Next(0, CharacterPrefabs.Length)];
+                var instance = Instantiate(prefab, transform.position, transform.rotation);
                 instance.GetComponent<MovingCharacter>().Go(transform.forward);
             }
         }

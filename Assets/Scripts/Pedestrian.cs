@@ -56,16 +56,16 @@ namespace Assets.Scripts
         private IEnumerator Die()
         {
             var alpha = 1f;
-            var material = Body.GetComponent<MeshRenderer>().material;
+//            var material = Body.GetComponent<MeshRenderer>().material;
 
             while (alpha > 0)
             {
-                material.color = new Color(1, 0, 0, alpha);
+  //              material.color = new Color(1, 0, 0, alpha);
                 alpha -= 0.2f * Time.deltaTime;
 
                 if (_health > 0)
                 {
-                    material.color = new Color(1, 1, 1, 1);
+//                    material.color = new Color(1, 1, 1, 1);
                     yield break;
                 }
 

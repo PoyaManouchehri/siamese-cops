@@ -1523,7 +1523,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374db5e4597fbeb49ae07d3fff793500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterPrefab: {fileID: 2076456985635917867, guid: fed7a1b86dc8ad44d8cac399584fcf4e, type: 3}
+  CharacterPrefabs:
+  - {fileID: 2803189774147966578, guid: 0ae6f07cfed5a8946beaa1d38dbcd85e, type: 3}
+  - {fileID: 2986169680620951386, guid: 564075a0cfd3b374c995bb283489a33d, type: 3}
+  - {fileID: 3720576400979292977, guid: a08d9c4850778294ca1352ef77051a19, type: 3}
+  - {fileID: 9004878474024200675, guid: 1d99569055eb9644f8f2b9ea6571b513, type: 3}
+  - {fileID: 7321941975272393448, guid: 792df4940192ab24d89f9213805fe2a5, type: 3}
+  - {fileID: 1680955879515119106, guid: 019dcde1372c5e14ea23e9d363a33121, type: 3}
   PauseDurations:
   - 1
   - 1
