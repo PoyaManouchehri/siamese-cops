@@ -71,14 +71,16 @@ namespace Assets.Scripts
         void OnPickedUpHealth(object sender, EventArgs e)
         {
             if (_health == 1)
+            {
                 _health = 2;
-
-            StartCoroutine(PowerUp());
+                StartCoroutine(PowerUp());
+            }
         }
 
         private IEnumerator Die()
         {
             _collider.enabled = false;
+            Animator.SetInteger("State", AnimWalk);
             Animator.SetTrigger("Death");
             yield return new WaitForSeconds(5f);
             Destroy(gameObject);

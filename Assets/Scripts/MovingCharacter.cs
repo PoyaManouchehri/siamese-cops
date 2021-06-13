@@ -14,6 +14,7 @@ namespace Assets.Scripts
 
         CharacterEventManager _eventManager;
         private bool _isPaused;
+        private bool _isStopped;
 
         public void Go(Vector3 direction)
         {
@@ -31,7 +32,7 @@ namespace Assets.Scripts
 
         void Update()
         {
-            if (_isPaused || GameState.State != GameStates.Playing) return;
+            if (_isStopped || _isPaused || GameState.State != GameStates.Playing) return;
 
             transform.position += Direction * Speed * Time.deltaTime;
         }
@@ -39,6 +40,7 @@ namespace Assets.Scripts
         void OnFatallyShot(object sender, EventArgs e)
         {
             _isPaused = true;
+            _isStopped = true;
         }
 
         void OnTazed(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace Assets.Scripts
         void OnRevived(object sender, EventArgs e)
         {
             _isPaused = false;
+            _isStopped = false;
         }
 
         private void OnPickedUpHealth(object sender, PickedUpHealthEventArgs e)
