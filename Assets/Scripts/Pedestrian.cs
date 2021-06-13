@@ -9,10 +9,13 @@ namespace Assets.Scripts
         public Animator Animator;
         public BoxCollider StandCollider;
         public BoxCollider DownCollider;
+        public float TazeRecoveryDuration;
 
         private const int AnimShot = 1;
         private const int AnimStandUp = 2;
-        private const float KnockDistance = 1f;
+        private const int AnimElectrocute = 3;
+        private const int AnimWalk = 0;
+        private const float KnockDistance = 0f;
 
         CharacterEventManager _eventManager;
         int _health = 1;
@@ -50,7 +53,7 @@ namespace Assets.Scripts
             if (_health == 1)
             {
                 _health = 0;
-                transform.position += transform.right * KnockDistance;
+                transform.position += Vector3.left * KnockDistance;
                 _eventManager.RaiseFatallyShot();
                 StartCoroutine(DoGetShot());
             }
@@ -59,6 +62,14 @@ namespace Assets.Scripts
         private void OnTazed(object sender, EventArgs e)
         {
             transform.position += transform.right * KnockDistance;
+            StartCoroutine(DoTaze());
+        }
+
+        private IEnumerator DoTaze()
+        {
+            Animator.SetInteger("State", AnimElectrocute);
+            yield return new WaitForSeconds(TazeRecoveryDuration);
+            Animator.SetInteger("State", AnimWalk);
         }
 
         private void OnPickedUpHealth(object sender, EventArgs e)

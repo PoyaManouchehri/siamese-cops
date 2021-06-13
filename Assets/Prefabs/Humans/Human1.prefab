@@ -50,6 +50,7 @@ MonoBehaviour:
   Animator: {fileID: 3405113293964418353}
   StandCollider: {fileID: 7019980652756240935}
   DownCollider: {fileID: 8770112466560498250}
+  TazeRecoveryDuration: 2
 --- !u!114 &-3544592849089255103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5, z: 2}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0.25, z: 0.8}
 --- !u!95 &3405113293964418353
 Animator:

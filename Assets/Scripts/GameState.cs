@@ -5,6 +5,7 @@ namespace Assets.Scripts
 {
     public enum GameStates
     {
+        OpeningScreen,
         Playing,
         PlayerKilledByZombie,
         PedestrianKilledByZombie
@@ -19,7 +20,12 @@ namespace Assets.Scripts
 
         public void Init()
         {
-            State = GameStates.Playing;
+            State = GameStates.OpeningScreen;
+        }
+
+        public void StartGame()
+        {
+            SetState(GameStates.Playing);
         }
 
         public void SetState(GameStates newState)

@@ -15,7 +15,13 @@ namespace Assets.Scripts
 
         void Start()
         {
-            StartCoroutine(Spawn());
+            GameState.GameStateChanged += OnGameStateChanged;
+        }
+
+        private void OnGameStateChanged(object sender, GameStateChangedEventArgs e)
+        {
+            if (e.NewState == GameStates.Playing)
+                StartCoroutine(Spawn());
         }
 
         IEnumerator Spawn()

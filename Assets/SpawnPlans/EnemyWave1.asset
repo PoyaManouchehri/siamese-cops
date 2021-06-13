@@ -13,53 +13,43 @@ MonoBehaviour:
   m_Name: EnemyWave1
   m_EditorClassIdentifier: 
   Items:
-  - TimestampDelta: 2
+  - TimestampDelta: 12
     Count: 1
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 7
     Count: 2
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 5
     Count: 2
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 4
     Count: 2
-    Prefabs:
-    - {fileID: 0}
-    - {fileID: 0}
-  - TimestampDelta: 4
+  - TimestampDelta: 8
+    Count: 1
+  - TimestampDelta: 6
     Count: 2
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
-  - TimestampDelta: 1
-    Count: 2
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
   - TimestampDelta: 10
     Count: 4
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
-  - TimestampDelta: 12
-    Count: 3
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
-  - TimestampDelta: 0
-    Count: 0
-    Prefabs:
-    - {fileID: 7978825777818221511, guid: 13a781c397d65d84e8ab306dcaeff220, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
-  - TimestampDelta: 0
-    Count: 0
-    Prefabs:
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
-    - {fileID: 5127699156954618472, guid: 4ee9d83c100dcf04ebb1d3049146b5b3, type: 3}
+  - TimestampDelta: 4
+    Count: 2
+  - TimestampDelta: 4
+    Count: 2
+  - TimestampDelta: 8
+    Count: 1
+  - TimestampDelta: 6
+    Count: 1
+  - TimestampDelta: 6
+    Count: 2
+  - TimestampDelta: 10
+    Count: 4
+  - TimestampDelta: 20
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1
+  - TimestampDelta: 1
+    Count: 1

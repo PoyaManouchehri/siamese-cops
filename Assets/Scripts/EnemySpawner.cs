@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
@@ -11,6 +12,7 @@ namespace Assets.Scripts
         public Transform[] Lanes;
         public SpawnPlan SpawnPlan;
         public GameState GameState;
+        public GameObject[] Prefabs;
 
         public int PlanPosition;
         private float _lastSpawn;
@@ -21,7 +23,13 @@ namespace Assets.Scripts
         {
             PlanPosition = 0;
             _shuffledLaneIndices = Enumerable.Range(0, Lanes.Length).Select(i => i).ToArray();
-            StartCoroutine(Spawn());
+            GameState.GameStateChanged += OnGameStateChanged;
+        }
+
+        private void OnGameStateChanged(object sender, GameStateChangedEventArgs e)
+        {
+            if (e.NewState == GameStates.Playing)
+                StartCoroutine(Spawn());
         }
 
         void ShuffleLaneIndices()
@@ -63,7 +71,7 @@ namespace Assets.Scripts
                 {
                     var laneIndex = _shuffledLaneIndices[i];
                     var lane = Lanes[laneIndex];
-                    var prefab = planItem.Prefabs[_random.Next(0, planItem.Count)];
+                    var prefab = Prefabs[_random.Next(0, Prefabs.Length)];
                     var instance = Instantiate(prefab, lane.transform.position, lane.transform.rotation);
                     instance.GetComponent<MovingCharacter>().Go(lane.transform.forward);
                     yield return new WaitForSeconds((float) Math.Abs(_random.NextDouble() * 0.5));

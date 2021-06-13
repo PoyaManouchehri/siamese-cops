@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ce631dc15019b4e949f87d9bc236a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Body: {fileID: 0}
   GameState: {fileID: 11400000, guid: 7e99d9227cdd4d64dbd30df1058522af, type: 2}
   Animator: {fileID: 788604792219332266}
+  TazeRecoveryDuration: 5
 --- !u!114 &7455171991694810550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0, z: 0}
   Speed: 0.5
-  TazeRecoveryDuration: 4
+  TazeRecoveryDuration: 5
   HealthPickupDuration: 2.5
   GameState: {fileID: 11400000, guid: 7e99d9227cdd4d64dbd30df1058522af, type: 2}
 --- !u!1001 &3467308238479571580

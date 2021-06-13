@@ -14,6 +14,5 @@ namespace Assets.Scripts
     {
         public float TimestampDelta;
         public int Count;
-        public GameObject[] Prefabs;
     }
 }

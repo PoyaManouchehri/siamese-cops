@@ -6,13 +6,16 @@ namespace Assets.Scripts
 {
     public class Enemy : MonoBehaviour, IHealthOwner
     {
-        public Transform Body;
         public GameState GameState;
         public Animator Animator;
+        public float TazeRecoveryDuration;
 
         CharacterEventManager _eventManager;
         int _health = 1;
         BoxCollider _collider;
+
+        private const int AnimElectrocute = 1;
+        private const int AnimWalk = 0;
 
         public bool CanReceiveHealth()
         {
@@ -54,7 +57,15 @@ namespace Assets.Scripts
 
         private void OnTazed(object sender, EventArgs e)
         {
-            transform.position += transform.right * 0.6f;
+//            transform.position += transform.right * 0.6f;
+            StartCoroutine(DoTaze());
+        }
+
+        private IEnumerator DoTaze()
+        {
+            Animator.SetInteger("State", AnimElectrocute);
+            yield return new WaitForSeconds(TazeRecoveryDuration);
+            Animator.SetInteger("State", AnimWalk);
         }
 
         void OnPickedUpHealth(object sender, EventArgs e)
