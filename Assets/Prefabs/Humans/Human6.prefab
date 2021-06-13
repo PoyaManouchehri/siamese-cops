@@ -65,6 +65,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   Speed: 1
   TazeRecoveryDuration: 2
+  HealthPickupDuration: 2
   GameState: {fileID: 11400000, guid: 7e99d9227cdd4d64dbd30df1058522af, type: 2}
 --- !u!65 &-6480864531349849097
 BoxCollider:

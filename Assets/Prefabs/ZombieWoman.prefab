@@ -75,8 +75,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0, z: 0}
-  Speed: 1
+  Speed: 0.5
   TazeRecoveryDuration: 4
+  HealthPickupDuration: 2.5
   GameState: {fileID: 11400000, guid: 7e99d9227cdd4d64dbd30df1058522af, type: 2}
 --- !u!95 &1861560531371087570
 Animator:

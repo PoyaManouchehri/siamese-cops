@@ -54,7 +54,7 @@ namespace Assets.Scripts
                     {
                         if (healthOwner.CanReceiveHealth())
                         {
-                            events.RaisedPickedUpHealth();
+                            events.RaisePickedUpHealth(healthOwner.HealthSpeedMultiplier());
                             Destroy(gameObject);
                             break;
                         }

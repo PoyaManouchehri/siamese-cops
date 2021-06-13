@@ -23,6 +23,11 @@ namespace Assets.Scripts
             return _health == 0;
         }
 
+        public float HealthSpeedMultiplier()
+        {
+            return 1f;
+        }
+
         void Start()
         {
             _origin = transform.position;
@@ -46,6 +51,7 @@ namespace Assets.Scripts
             {
                 _health = 0;
                 transform.position += transform.right * KnockDistance;
+                _eventManager.RaiseFatallyShot();
                 StartCoroutine(DoGetShot());
             }
         }

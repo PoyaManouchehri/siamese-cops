@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public Vector3 Direction;
         public float Speed;
         public float TazeRecoveryDuration;
+        public float HealthPickupDuration;
         public GameState GameState;
 
         CharacterEventManager _eventManager;
@@ -22,9 +23,10 @@ namespace Assets.Scripts
         void Start()
         {
             _eventManager = gameObject.GetComponent<CharacterEventManager>();
-            _eventManager.Shot += OnShot;
+            _eventManager.FatallyShot += OnFatallyShot;
             _eventManager.Tazed += OnTazed;
             _eventManager.Revived += OnRevived;
+            _eventManager.PickedUpHealth += OnPickedUpHealth;
         }
 
         void Update()
@@ -34,7 +36,7 @@ namespace Assets.Scripts
             transform.position += Direction * Speed * Time.deltaTime;
         }
 
-        void OnShot(object sender, EventArgs e)
+        void OnFatallyShot(object sender, EventArgs e)
         {
             _isPaused = true;
         }
@@ -49,10 +51,23 @@ namespace Assets.Scripts
             _isPaused = false;
         }
 
+        private void OnPickedUpHealth(object sender, PickedUpHealthEventArgs e)
+        {
+            StartCoroutine(PickUpHealth(e.SpeedMultiplier));
+        }
+
         private IEnumerator Taze()
         {
             _isPaused = true;
             yield return new WaitForSeconds(TazeRecoveryDuration);
+            _isPaused = false;
+        }
+
+        private IEnumerator PickUpHealth(float speedMultiplier)
+        {
+            _isPaused = true;
+            Speed *= speedMultiplier;
+            yield return new WaitForSeconds(HealthPickupDuration);
             _isPaused = false;
         }
     }

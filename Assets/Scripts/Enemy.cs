@@ -19,6 +19,11 @@ namespace Assets.Scripts
             return _health == 1;
         }
 
+        public float HealthSpeedMultiplier()
+        {
+            return 2f;
+        }
+
         void Start()
         {
             _eventManager = gameObject.AddComponent<CharacterEventManager>();
@@ -37,10 +42,13 @@ namespace Assets.Scripts
         {
             if (_health > 0)
             {
-                _health = Math.Max(0, _health - 1);
+                _health--;
 
                 if (_health == 0)
+                {
+                    _eventManager.RaiseFatallyShot();
                     StartCoroutine(Die());
+                }
             }
         }
 
@@ -53,6 +61,8 @@ namespace Assets.Scripts
         {
             if (_health == 1)
                 _health = 2;
+
+            StartCoroutine(PowerUp());
         }
 
         private IEnumerator Die()
@@ -61,6 +71,13 @@ namespace Assets.Scripts
             Animator.SetTrigger("Death");
             yield return new WaitForSeconds(5f);
             Destroy(gameObject);
+        }
+
+        private IEnumerator PowerUp()
+        {
+            Animator.SetTrigger("PowerUp");
+            Animator.SetFloat("WalkSpeed", HealthSpeedMultiplier());
+            yield return new WaitForSeconds(2f);
         }
 
         void CheckCollisions()
