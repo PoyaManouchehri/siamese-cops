@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: EnemyWave1
   m_EditorClassIdentifier: 
   Items:
-  - TimestampDelta: 12
+  - TimestampDelta: 10
     Count: 1
   - TimestampDelta: 7
     Count: 2
   - TimestampDelta: 5
     Count: 2
-  - TimestampDelta: 4
+  - TimestampDelta: 8
     Count: 2
   - TimestampDelta: 8
     Count: 1
@@ -42,14 +42,16 @@ MonoBehaviour:
   - TimestampDelta: 20
     Count: 1
   - TimestampDelta: 1
+    Count: 2
+  - TimestampDelta: 2
     Count: 1
   - TimestampDelta: 1
     Count: 1
-  - TimestampDelta: 1
+  - TimestampDelta: 2
     Count: 1
   - TimestampDelta: 1
+    Count: 2
+  - TimestampDelta: 2
     Count: 1
-  - TimestampDelta: 1
-    Count: 1
-  - TimestampDelta: 1
-    Count: 1
+  - TimestampDelta: 10
+    Count: 5

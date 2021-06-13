@@ -117,7 +117,7 @@ namespace Assets.Scripts
             LovingMemory.enabled = false;
             yield return new WaitForSeconds(1f);
             DeathNote.enabled = true;
-            DeathNote.text = "You are Australia's first Siamese twin with a conjoined brain. You had to work doubly hard to make it as a traffic cop. But on that historic day, you were about to face your biggest challenge yet...\n\n\n\nPress Space to start";
+            DeathNote.text = "You are Australia's first Siamese twin with conjoined brain function. You have had to work doubly hard to make it as a traffic cop. But on that historic day, you were about to face your biggest challenge yet...\n\n\n\nPress Space to start";
             yield return FadeIn(DeathNote.GetComponent<CanvasRenderer>(), Color.white, 3f);
         }
 
