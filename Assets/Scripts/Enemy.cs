@@ -8,6 +8,7 @@ namespace Assets.Scripts
     {
         public Transform Body;
         public GameState GameState;
+        public Animator Animator;
 
         CharacterEventManager _eventManager;
         int _health = 1;
@@ -34,10 +35,13 @@ namespace Assets.Scripts
 
         void OnShot(object sender, EventArgs e)
         {
-            _health = Math.Max(0, _health - 1);
+            if (_health > 0)
+            {
+                _health = Math.Max(0, _health - 1);
 
-            if (_health == 0)
-                StartCoroutine(Die());
+                if (_health == 0)
+                    StartCoroutine(Die());
+            }
         }
 
         private void OnTazed(object sender, EventArgs e)
@@ -53,16 +57,9 @@ namespace Assets.Scripts
 
         private IEnumerator Die()
         {
-            var alpha = 1f;
-            var material = Body.GetComponent<MeshRenderer>().material;
-
-            while (alpha > 0)
-            {
-                material.color = new Color(0, 1, 0, alpha);
-                alpha -= 1f * Time.deltaTime;
-                yield return null;
-            }
-
+            _collider.enabled = false;
+            Animator.SetTrigger("Death");
+            yield return new WaitForSeconds(5f);
             Destroy(gameObject);
         }
 
