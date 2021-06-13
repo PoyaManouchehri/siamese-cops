@@ -8,7 +8,8 @@ namespace Assets.Scripts
         OpeningScreen,
         Playing,
         PlayerKilledByZombie,
-        PedestrianKilledByZombie
+        PedestrianKilledByZombie,
+        LevelCleared
     }
 
     [CreateAssetMenu(menuName = "ScriptableObjects/GameState")]

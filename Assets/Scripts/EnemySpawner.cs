@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Assets.Scripts
         private float _lastSpawn;
         private int[] _shuffledLaneIndices;
         private readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
+        private List<GameObject> _lastWave = new List<GameObject>();
 
         void Start()
         {
@@ -66,6 +68,7 @@ namespace Assets.Scripts
                 _lastSpawn = Time.time;
                 PlanPosition++;
                 ShuffleLaneIndices();
+                _lastWave.Clear();
 
                 for (var i = 0; i < Math.Min(planItem.Count, Lanes.Length); i++)
                 {
@@ -73,8 +76,20 @@ namespace Assets.Scripts
                     var lane = Lanes[laneIndex];
                     var prefab = Prefabs[_random.Next(0, Prefabs.Length)];
                     var instance = Instantiate(prefab, lane.transform.position, lane.transform.rotation);
+                    _lastWave.Add(instance);
                     instance.GetComponent<MovingCharacter>().Go(lane.transform.forward);
                     yield return new WaitForSeconds((float) Math.Abs(_random.NextDouble() * 0.5));
+                }
+
+                yield return null;
+            }
+
+            while (true)
+            {
+                if (GameState.State == GameStates.Playing && _lastWave.All(i => i == null))
+                {
+                    GameState.SetState(GameStates.LevelCleared);
+                    yield break;
                 }
 
                 yield return null;

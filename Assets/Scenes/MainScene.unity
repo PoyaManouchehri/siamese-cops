@@ -1595,8 +1595,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 271619234}
-  - {fileID: 1208407706}
   - {fileID: 1366152247}
+  - {fileID: 1208407706}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 443131586}
   - component: {fileID: 443131589}
   m_Layer: 0
-  m_Name: DeathCanvas
+  m_Name: CutSceneCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4434679533618707324, guid: 807f3020dfc94f34c99ba07fb57c2594, type: 3}
-  BulletSpeed: 3.5
+  BulletSpeed: 3.4
   Type: 2
 --- !u!1 &513071871
 GameObject:
@@ -5194,7 +5194,7 @@ Transform:
   - {fileID: 509937241}
   - {fileID: 1322467369}
   m_Father: {fileID: 393900544}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231608376
 GameObject:
@@ -5720,7 +5720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 4434679533618707324, guid: 807f3020dfc94f34c99ba07fb57c2594, type: 3}
-  BulletSpeed: 3.5
+  BulletSpeed: 3.4
   Type: 2
 --- !u!1 &1342679817
 GameObject:
@@ -6790,7 +6790,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695208692}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -8506,7 +8506,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3daddadd2c32ba949af00fa3d1e43959, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3daddadd2c32ba949af00fa3d1e43959, type: 3}
       propertyPath: m_LocalScale.z

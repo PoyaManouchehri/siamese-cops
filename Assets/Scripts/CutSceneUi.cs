@@ -32,7 +32,9 @@ namespace Assets.Scripts
             if (e.NewState == GameStates.PlayerKilledByZombie)
                 StartCoroutine(FadeIn("You fought the good fight on that day. Australia will not forget its heroes..."));
             else if (e.NewState == GameStates.PedestrianKilledByZombie)
-                StartCoroutine(FadeIn("The battle ended, but the war had just begun. You are reminded that the loss of life can't be measured in numbers..."));
+                StartCoroutine(FadeIn("Your courage was commendable, but the the loss of life was too great that day. It was time to regroup and plan again..."));
+            else if (e.NewState == GameStates.LevelCleared)
+                StartCoroutine(FadeIn("The battle ended, but the war had just begun. You were reminded that the loss of life can't be measured in numbers..."));
         }
 
         private IEnumerator FadeIn(string deathNote)
